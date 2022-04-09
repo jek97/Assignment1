@@ -28,7 +28,7 @@ let we see these methods in detail:
 * drive(speed, seconds): this method is used to move the robot straight ahead, it's arguments are the speed of the motors (expressed in meters/seconds) and the duration of the motion in seconds
   rappresented by the argument seconds.
   This function set the power of the two motors to the value specified by speed for a time interval specified by seconds, after that it set the speed to zero again.
-  """
+  '
   def drive(speed, seconds):
       """
       Function for setting a linear velocity
@@ -40,7 +40,7 @@ let we see these methods in detail:
       time.sleep(seconds)
       R.motors[0].m0.power = 0
       R.motors[0].m1.power = 0 
-  """
+  '
 * turn(speed, seconds): this method is used to turn the robot in place, it's arguments are the speed of the motors (expressed in meters/seconds) and the duration of the motion in seconds rappresented
   by the argument seconds.
   This function set the power of the two motors to the value specified by speed fot the right motor and to -speed for the left motor, for a time interval specified by seconds, after that it set the
