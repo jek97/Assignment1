@@ -25,8 +25,9 @@ On Ubuntu, this can be accomplished by:
 
 the assignment1.py file is composed by 6 main methods used to accomplish the requested task, which is to move the robot around the arena, rappresented by golden token, without touching it and each time the robot is near to a silver token grabs it and releases it behind the robot.
 let we see these methods in detail:
-*drive(speed, seconds): this method is used to move the robot straight ahead, it's arguments are the speed of the motors (expressed in meters/seconds) and the duration of the motion in seconds rappresented by the argument seconds.
-This function set the power of the two motors to the value specified by speed for a time interval specified by seconds, after that it set the speed to zero again.
+* drive(speed, seconds): this method is used to move the robot straight ahead, it's arguments are the speed of the motors (expressed in meters/seconds) and the duration of the motion in seconds
+  rappresented by the argument seconds.
+  This function set the power of the two motors to the value specified by speed for a time interval specified by seconds, after that it set the speed to zero again.
 
   def drive(speed, seconds):
       """
@@ -41,8 +42,10 @@ This function set the power of the two motors to the value specified by speed fo
       R.motors[0].m0.power = 0
       R.motors[0].m1.power = 0 
 
-*turn(speed, seconds): this method is used to turn the robot in place, it's arguments are the speed of the motors (expressed in meters/seconds) and the duration of the motion in seconds rappresented by the argument seconds.
-This function set the power of the two motors to the value specified by speed fot the right motor and to -speed for the left motor, for a time interval specified by seconds, after that it set the speed to zero again.
+* turn(speed, seconds): this method is used to turn the robot in place, it's arguments are the speed of the motors (expressed in meters/seconds) and the duration of the motion in seconds rappresented
+  by the argument seconds.
+  This function set the power of the two motors to the value specified by speed fot the right motor and to -speed for the left motor, for a time interval specified by seconds, after that it set the
+  speed to zero again.
 
   def turn(speed, seconds):
       """
@@ -57,7 +60,8 @@ This function set the power of the two motors to the value specified by speed fo
       R.motors[0].m0.power = 0
       R.motors[0].m1.power = 0
 
-*find_token(): this method is used to identify the tokens near the robot and will return the polar coordinates of the token (dist, rot_y) and the token type (tokenT) (silver or gold), if there is no token it will return a distance equal to -1, an angle equal to -1 and a token type euqal to -1. 
+* find_token(): this method is used to identify the tokens near the robot and will return the polar coordinates of the token (dist, rot_y) and the token type (tokenT) (silver or gold), if there is no
+  token it will return a distance equal to -1, an angle equal to -1 and a token type euqal to -1. 
 
   def find_token():
     """
@@ -79,7 +83,8 @@ This function set the power of the two motors to the value specified by speed fo
     else:
         return dist, rot_y, tokenT
 
-*Sector_min(dist, rot_y_min, rot_y_max): this method return the distance of the nearest golden token respect the robot in the circular sector specified by the angles rot_y_min, rot_y_max and the radius equal to dist, more over the try-except function is used to handle the case when there is no token in the circular sector.
+* Sector_min(dist, rot_y_min, rot_y_max): this method return the distance of the nearest golden token respect the robot in the circular sector specified by the angles rot_y_min, rot_y_max and the
+  radius equal to dist, more over the try-except function is used to handle the case when there is no token in the circular sector.
 
   def Sector_min(dist, rot_y_min, rot_y_max):
       """this method return the distance of the nearest golden token in the circular sector around the robot specified by rot_y_min, rot_y_max angles and the radius dist"""
@@ -94,8 +99,8 @@ This function set the power of the two motors to the value specified by speed fo
           S_min=[1000, 1000, 1000]
       return S_min[0]
 
-*Grab_token(): this method is used to grab the silver token any time the robot aproach one and move it behind him.
-Infact to grab a token the distance between the token and the robot must be less then d_th=0.4 and the angle between the robot front direction and the token must be less then a_th=2.
+* Grab_token(): this method is used to grab the silver token any time the robot aproach one and move it behind him.
+  Infact to grab a token the distance between the token and the robot must be less then d_th=0.4 and the angle between the robot front direction and the token must be less then a_th=2.
 
   def Grab_token():
       """ this method uses the robot methods drive(),turn(),grab() and release() with the find_token() methods specified above to find a silver token near the robot, grab it, turn, release the token
@@ -129,7 +134,7 @@ Infact to grab a token the distance between the token and the robot must be less
           else:
               break
             
-To see how this method works we can see the pseudocode of it:
+  To see how this method works we can see the pseudocode of it:
   
   grab_token(): method to grab the nearest silver token, leave it behind the robot, and return to the position when the token was grabbed.
   
@@ -169,7 +174,7 @@ To see how this method works we can see the pseudocode of it:
           
               exit from the while loop ( this is the case where there is no token near the robot )
               
-*Avoid_guardrail(): this method is used to move the robot around the arena without inpact on his boundaries, which are composed by golden token.
+* Avoid_guardrail(): this method is used to move the robot around the arena without inpact on his boundaries, which are composed by golden token.
 
   def Avoid_guardrail():
     """this method is used to avoid the arena's boundaries composed by golden token"""
@@ -205,7 +210,7 @@ To see how this method works we can see the pseudocode of it:
         drive(20, 0.5)
         print("driving")
 
-To see how this method works we can see the pseudocode of it:
+  To see how this method works we can see the pseudocode of it:
 
   Avoid_guardrail(): this method moves the robot along the arena without inpact on his boundaries.
   
@@ -249,7 +254,8 @@ To see how this method works we can see the pseudocode of it:
       
           drive forward
  
- *main(): this method is basically composed rispectively by the two methods Grab_token() and Avoid_guardrail() used in a while loop with no end, in this way the method Grab_token() has the priority on the Avoid_guardrail() method when the robot find a silver token near him.
+* main(): this method is basically composed rispectively by the two methods Grab_token() and Avoid_guardrail() used in a while loop with no end, in this way the method Grab_token() has the priority on
+  the Avoid_guardrail() method when the robot find a silver token near him.
  
 To run the assignment script in the simulator, use `run.py`, passing it the file names assignment1.py. 
 
