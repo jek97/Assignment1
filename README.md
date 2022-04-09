@@ -32,7 +32,6 @@ let we see these methods in detail:
   def drive(speed, seconds):
       """
       Function for setting a linear velocity
-      
       Args: speed (int): the speed of the wheels
 	    seconds (int): the time interval
       """
@@ -50,8 +49,7 @@ let we see these methods in detail:
   def turn(speed, seconds):
       """
       Function for setting an angular velocity
-    
-      Args: speed (int): the speed of the wheels 
+            Args: speed (int): the speed of the wheels 
   	    seconds (int): the time interval
       """
       R.motors[0].m0.power = speed
@@ -66,7 +64,6 @@ let we see these methods in detail:
   def find_token():
     """
     Function to find the closest token
-
     Returns:
 	dist (float): distance of the closest token (-1 if no token is detected)
 	rot_y (float): angle between the robot and the token (-1 if no token is detected)
