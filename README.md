@@ -28,8 +28,7 @@ let we see these methods in detail:
 * drive(speed, seconds): this method is used to move the robot straight ahead, it's arguments are the speed of the motors (expressed in meters/seconds) and the duration of the motion in seconds
   rappresented by the argument seconds.
   This function set the power of the two motors to the value specified by speed for a time interval specified by seconds, after that it set the speed to zero again.
-  '''
-  def drive(speed, seconds):
+  '''def drive(speed, seconds):
       """
       Function for setting a linear velocity
       Args: speed (int): the speed of the wheels
@@ -45,8 +44,7 @@ let we see these methods in detail:
   by the argument seconds.
   This function set the power of the two motors to the value specified by speed fot the right motor and to -speed for the left motor, for a time interval specified by seconds, after that it set the
   speed to zero again.
-  '''
-  def turn(speed, seconds):
+  '''def turn(speed, seconds):
       """
       Function for setting an angular velocity
             Args: speed (int): the speed of the wheels 
@@ -60,8 +58,7 @@ let we see these methods in detail:
   '''
 * find_token(): this method is used to identify the tokens near the robot and will return the polar coordinates of the token (dist, rot_y) and the token type (tokenT) (silver or gold), if there is no
   token it will return a distance equal to -1, an angle equal to -1 and a token type euqal to -1. 
-  '''
-  def find_token():
+  '''def find_token():
     """
     Function to find the closest token
     Returns:
@@ -82,8 +79,7 @@ let we see these methods in detail:
   '''
 * Sector_min(dist, rot_y_min, rot_y_max): this method return the distance of the nearest golden token respect the robot in the circular sector specified by the angles rot_y_min, rot_y_max and the
   radius equal to dist, more over the try-except function is used to handle the case when there is no token in the circular sector.
-  '''
-  def Sector_min(dist, rot_y_min, rot_y_max):
+  '''def Sector_min(dist, rot_y_min, rot_y_max):
       """this method return the distance of the nearest golden token in the circular sector around the robot specified by rot_y_min, rot_y_max angles and the radius dist"""
       S=[] 
       for token in R.see():
@@ -98,8 +94,7 @@ let we see these methods in detail:
   '''
 * Grab_token(): this method is used to grab the silver token any time the robot aproach one and move it behind him.
   Infact to grab a token the distance between the token and the robot must be less then d_th=0.4 and the angle between the robot front direction and the token must be less then a_th=2.
-  '''
-  def Grab_token():
+  '''def Grab_token():
       """ this method uses the robot methods drive(),turn(),grab() and release() with the find_token() methods specified above to find a silver token near the robot, grab it, turn, release the token
       and return to the position when the robot has grabbed the token"""
       while 1:
@@ -132,8 +127,7 @@ let we see these methods in detail:
               break
   '''
   To see how this method works we can see the pseudocode of it:
-  '''
-  grab_token(): method to grab the nearest silver token, leave it behind the robot, and return to the position when the token was grabbed.
+  '''grab_token(): method to grab the nearest silver token, leave it behind the robot, and return to the position when the token was grabbed.
   
       while ever: ( in this way the following command will be repeated untill the task accomplish)
       
@@ -172,8 +166,7 @@ let we see these methods in detail:
               exit from the while loop ( this is the case where there is no token near the robot )
   '''
 * Avoid_guardrail(): this method is used to move the robot around the arena without inpact on his boundaries, which are composed by golden token.
-  '''
-  def Avoid_guardrail():
+  '''def Avoid_guardrail():
     """this method is used to avoid the arena's boundaries composed by golden token"""
     Ss=[Sector_min(10, -15, 15), Sector_min(10, -70, -15), Sector_min(10, 15, 70)]
     if min(Ss) == Ss[0] and Sector_min(10, -100, -80)-Sector_min(10, 80, 100) < -0.5 and Ss[0]<1.8:
@@ -205,11 +198,10 @@ let we see these methods in detail:
     else:
         """ in this case the robot is far enough from the boundarie and it can drive straight"""
         drive(20, 0.5)
-        print("driving")
+        print("driving")  
   '''
   To see how this method works we can see the pseudocode of it:
-  '''
-  Avoid_guardrail(): this method moves the robot along the arena without inpact on his boundaries.
+  '''Avoid_guardrail(): this method moves the robot along the arena without inpact on his boundaries.
   
       define the list Ss of the distances of the nearest golden token rispectively in front of the robot (sector between the angles -15, 15 and a distance of 10), at his left ( sector between the
       angles -70, -15 and a distance of 10), at his right ( sector between the angles 15, 70 and a distance of 10).
